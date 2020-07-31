@@ -1,0 +1,19 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+
+functions:
+  post:
+    lang: golang-middleware
+    handler: ./post
+    image: hasheddan/crossfaas-post:latest
+    secrets:
+    - db-conn
+  
+  list:
+    lang: golang-middleware
+    handler: ./list
+    image: hasheddan/crossfaas-list:latest
+    secrets:
+    - db-conn
