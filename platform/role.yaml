@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: databases.crossfaas.io
+  labels:
+    rbac.crossplane.io/aggregate-to-crossplane: "true"
+rules:
+- apiGroups:
+  - crossfaas.io
+  resources:
+  - databases
+  - databases/status
+  - databaserequirements
+  - databasesrequirements/status
+  verbs:
+  - "*"
